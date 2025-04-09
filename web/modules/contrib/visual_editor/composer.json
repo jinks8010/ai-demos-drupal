@@ -1,0 +1,19 @@
+{
+  "name": "drupal/visual_editor",
+  "type": "drupal-module",
+  "description": "Provides an off-canvas integration to edit nodes in sidebar triggered by clickable decoupled iframe regions.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/visual_editor",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/visual_editor",
+    "source": "https://git.drupalcode.org/project/visual_editor"
+  },
+  "require": {
+    "drupal/core": "^10 || ^11"
+  },
+  "require-dev": {
+    "drupal/decoupled_preview_iframe": "^1"
+  }
+}

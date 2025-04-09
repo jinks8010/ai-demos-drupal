@@ -1,0 +1,21 @@
+uuid: 9b849599-b033-4a62-8b23-e623387a67a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.simple_card
+_core:
+  default_config_hash: Nz-_k51eGKNU1MwrZVZBDrSdYODIjzYGhbaAOgXLops
+id: paragraph.simple_card.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: simple_card
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,21 @@
+uuid: f7dcdc98-12dd-42f3-8299-8a226c2e306b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheading
+    - paragraphs.paragraphs_type.webform
+_core:
+  default_config_hash: 1hzpocJKjEBZljQM-i7znCH7DhnqxOJd-KN7uoEC4fw
+id: paragraph.webform.field_subheading
+field_name: field_subheading
+entity_type: paragraph
+bundle: webform
+label: Subheading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

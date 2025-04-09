@@ -1,0 +1,51 @@
+uuid: 7c7defe7-a031-4aa7-9451-26ec74bddb28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.author.field_company
+    - field.field.paragraph.author.field_image
+    - field.field.paragraph.author.field_name
+    - field.field.paragraph.author.field_position
+    - paragraphs.paragraphs_type.author
+_core:
+  default_config_hash: VA5JCL_CorNC91lGY4Q-BbTEqNTlzgk3TBkzN3_MyBg
+id: paragraph.author.default
+targetEntityType: paragraph
+bundle: author
+mode: default
+content:
+  field_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_position:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

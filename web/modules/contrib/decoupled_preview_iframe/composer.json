@@ -1,0 +1,16 @@
+{
+  "name": "drupal/decoupled_preview_iframe",
+  "type": "drupal-module",
+  "description": "Preview Drupal content from your decoupled front-end site via an Iframe with the content from your FE application.",
+  "keywords": ["Drupal", "Decoupled"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/decoupled_preview_iframe",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/decoupled_preview_iframe",
+    "source": "https://git.drupalcode.org/project/decoupled_preview_iframe"
+  },
+  "require": {
+    "drupal/core": "^10 || ^11"
+  }
+}

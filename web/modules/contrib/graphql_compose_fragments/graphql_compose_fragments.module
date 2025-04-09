@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * GraphQL Compose module file.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function graphql_compose_fragments_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.graphql_compose_fragments':
+      $path = \Drupal::service('extension.list.module')->getPath('graphql_compose_fragments');
+      $output = file_get_contents($path . '/README.md');
+      return '<pre>' . Xss::filterAdmin($output) . '</pre>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function graphql_compose_fragments_theme(array $existing, string $type, string $theme, string $path): array {
+  return [
+    'graphql_compose_fragments' => [
+      'variables' => [
+        'fragments' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function graphql_compose_fragments_config_schema_info_alter(&$definitions) {
+  $definitions['graphql_compose.settings']['mapping']['settings']['mapping']['fragments_enabled'] = [
+    'type' => 'boolean',
+    'label' => t('Enable schema fragments.'),
+  ];
+}

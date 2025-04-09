@@ -1,0 +1,21 @@
+uuid: b2e47c4a-afe6-4052-9c09-5b844e42a48a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_position
+    - paragraphs.paragraphs_type.author
+_core:
+  default_config_hash: aNMgbhwFEN3oCouOq9NtNk40qxa54GOp-sCMZTtlFHs
+id: paragraph.author.field_position
+field_name: field_position
+entity_type: paragraph
+bundle: author
+label: Position
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

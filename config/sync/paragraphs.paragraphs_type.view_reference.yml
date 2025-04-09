@@ -1,0 +1,12 @@
+uuid: 6706b352-0fc3-48c7-b70a-096dd5b3fe28
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4ElyelB_RBB6aRVENGZufvLVmihKNnxL7nleKK83tTo
+id: view_reference
+label: 'View Reference'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

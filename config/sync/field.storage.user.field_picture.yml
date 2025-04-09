@@ -1,0 +1,22 @@
+uuid: 5ecbc74e-b7b4-4cdb-bde4-a5a25a2d361b
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - user
+_core:
+  default_config_hash: PT_16rmzDVpkH-oXX8kizsU7i0JJCDylar_8m0grpqc
+id: user.field_picture
+field_name: field_picture
+entity_type: user
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

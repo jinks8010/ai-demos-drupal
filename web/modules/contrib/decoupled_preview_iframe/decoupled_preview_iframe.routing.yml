@@ -1,0 +1,7 @@
+decoupled_preview_iframe.settings:
+  path: '/admin/config/decoupled_preview_iframe/settings'
+  defaults:
+    _form: '\Drupal\decoupled_preview_iframe\Form\SettingsForm'
+    _title: 'Decoupled Preview Iframe Settings'
+  requirements:
+    _permission: 'administer site configuration'

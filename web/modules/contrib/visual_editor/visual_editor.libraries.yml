@@ -1,0 +1,9 @@
+node_view:
+  js:
+    js/visual_editor.node_view.js: {}
+  css:
+    theme:
+      css/dialog-overrides.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,12 @@
+uuid: f02f45f1-66cb-4a26-8655-d8191b1a2806
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: eijN3XXwHEuI4iisQIPrvw5hAwZMBUkAUGYsirTe058
+id: question
+label: Question
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

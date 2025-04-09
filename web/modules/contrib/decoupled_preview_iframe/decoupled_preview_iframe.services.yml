@@ -1,0 +1,6 @@
+services:
+  decoupled_preview_iframe.event_subscriber:
+    class: Drupal\decoupled_preview_iframe\EventSubscriber\RedirectAnonymousSubscriber
+    arguments: ['@current_user', '@path.matcher', '@path.current', '@path_alias.manager', '@logger.factory', '@config.factory', '@current_route_match']
+    tags:
+      - { name: event_subscriber }

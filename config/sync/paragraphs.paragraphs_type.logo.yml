@@ -1,0 +1,12 @@
+uuid: bab07eed-7322-4a9b-8fc4-4be7ed88d023
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HdhHhwnSE2laYPXETDSUzWuTq0xiAMKopdz7RjtA6L0
+id: logo
+label: Logo
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

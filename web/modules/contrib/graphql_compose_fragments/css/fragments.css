@@ -1,0 +1,22 @@
+details.fragment {
+  display: block;
+  margin: 0;
+  border: 1px solid #ccc;
+}
+
+details.fragment + details.fragment {
+  margin-top: -1px;
+}
+
+details.fragment summary span {
+  float: right;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+details.fragment code {
+  display: block;
+  margin: 0;
+  padding: var(--gin-spacing-m, 0.95em 1.45em);
+  background: #fff;
+}

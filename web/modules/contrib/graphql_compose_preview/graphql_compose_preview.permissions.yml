@@ -1,0 +1,3 @@
+view graphql_compose_preview entity:
+  title: 'View preview entities'
+  description: 'View another user''s preview entities using a token link.'

@@ -1,0 +1,29 @@
+uuid: 97b31ea2-0058-4115-b862-a5881c52ff8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_technologies
+    - node.type.ai_demo
+    - taxonomy.vocabulary.tags
+id: node.ai_demo.field_technologies
+field_name: field_technologies
+entity_type: node
+bundle: ai_demo
+label: Technologies
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

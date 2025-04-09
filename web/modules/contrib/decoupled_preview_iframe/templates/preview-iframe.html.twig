@@ -1,0 +1,42 @@
+<div class="iframe_information">
+  {% if showPublishedToggle %}
+  <div class="js-form-type-checkbox form-type--checkbox form-type--boolean">
+    <input
+      id="show_published_toggle"
+      type="checkbox"
+      class="form-checkbox form-boolean form-boolean--type-checkbox"
+    />
+
+    <span class="checkbox-toggle">
+      <span class="checkbox-toggle__inner"></span>
+    </span>
+
+    <label class="form-item__label option">Show Published</label>
+  </div>
+
+  <div>
+    <label class="form-item__label option">|</label>
+  </div>
+  {% endif %}
+  <div>
+    <label class="form-item__label option">Preview URL:</label>
+    <a
+      id="preview_url_anchor"
+      href="{{ url }}"
+      target="_blank"
+    >{{ url|split('?')[0] }}</a>
+  </div>
+
+</div>
+<div class="decoupled_preview_iframe-container">
+  <iframe
+    id="node_preview"
+    class="decoupled_preview_iframe"
+    src="{{ url }}"
+    frameborder="0"
+    allowtransparency="true"
+    width="100%"
+    sandbox = "allow-scripts allow-forms allow-same-origin allow-pointer-lock allow-presentation allow-top-navigation"
+  >
+  </iframe>
+</div>

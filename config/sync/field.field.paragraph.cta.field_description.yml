@@ -1,0 +1,21 @@
+uuid: 395dabc0-0924-423d-915a-970b3fb757b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.cta
+_core:
+  default_config_hash: Ri_mBankRkWulYwsD0Sp-7_6xIyNJJbIPRg9_VPVvtw
+id: paragraph.cta.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: cta
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

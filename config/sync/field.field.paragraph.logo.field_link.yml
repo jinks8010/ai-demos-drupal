@@ -1,0 +1,25 @@
+uuid: 1c6cb96c-0e2d-4e30-9dab-cf7b137b5862
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.logo
+  module:
+    - link
+_core:
+  default_config_hash: '-5KETqlk-yaBXz0iIh-5bOYyAyDH7GoGFvi3U5sS0Ic'
+id: paragraph.logo.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: logo
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

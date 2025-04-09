@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Visual Editor module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function visual_editor_install() {
+  module_set_weight('visual_editor', 10);
+}
+
+/**
+ * Remove wrapper.* settings.
+ */
+function visual_editor_update_10001() {
+  \Drupal::configFactory()
+    ->getEditable('visual_editor.settings')
+    ->clear('wrapper')
+    ->save();
+}

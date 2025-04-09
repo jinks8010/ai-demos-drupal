@@ -1,0 +1,9 @@
+site:
+  css:
+    theme:
+      css/decoupled_preview_iframe.site.css: {}
+  js:
+    js/decoupled_preview_iframe.site.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

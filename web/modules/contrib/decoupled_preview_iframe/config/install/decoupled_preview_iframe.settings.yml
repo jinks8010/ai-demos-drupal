@@ -1,0 +1,6 @@
+redirect_anonymous: false
+redirect_url: ''
+preview_url: ''
+preview_types: []
+route_sync: 'DECOUPLED_PREVIEW_IFRAME_ROUTE_SYNC'
+draft_provider: 'none'

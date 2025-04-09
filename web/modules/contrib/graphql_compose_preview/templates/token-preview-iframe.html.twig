@@ -1,0 +1,21 @@
+{#
+  Token preview iframe.
+
+  Variables available:
+  - attributes: HTML attributes for the link.
+    - class: The class name.
+    - src: The URL for the token.
+    - allow: The allow attribute.
+    - width: The width attribute.
+    - height: The height attribute.
+    - frameborder: The frameborder attribute.
+  - node: the node object.
+  - preview_token: The preview token string.
+  - preview_token_url: The generated preview URL object.
+  - preview_token_access: True if the preview is being view via token.
+#}
+
+
+{% block content %}
+  <iframe{{ attributes }}></iframe>
+{% endblock %}

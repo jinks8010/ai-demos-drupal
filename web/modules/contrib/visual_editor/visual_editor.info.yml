@@ -1,0 +1,12 @@
+name: 'Visual Editor'
+description: Drupal Visual Editor
+type: module
+core_version_requirement: ^10 || ^11
+package: Visual Editor
+dependencies:
+  - decoupled_preview_iframe:decoupled_preview_iframe
+
+# Information added by Drupal.org packaging script on 2024-07-30
+version: '1.0.11'
+project: 'visual_editor'
+datestamp: 1722362312

@@ -1,0 +1,5 @@
+graphql_compose.settings.fragments:
+  title: Fragments
+  route_name: graphql_compose.fragments
+  parent_id: graphql_compose.settings
+  weight: 5

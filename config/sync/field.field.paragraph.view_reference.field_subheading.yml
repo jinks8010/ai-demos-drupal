@@ -1,0 +1,21 @@
+uuid: 938c7901-aee6-4182-9bf6-636dacf3e7ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheading
+    - paragraphs.paragraphs_type.view_reference
+_core:
+  default_config_hash: k2RceyM7B-5JeL066_pnvGtzg_ztFdfeSc621T_e7kk
+id: paragraph.view_reference.field_subheading
+field_name: field_subheading
+entity_type: paragraph
+bundle: view_reference
+label: Subheading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

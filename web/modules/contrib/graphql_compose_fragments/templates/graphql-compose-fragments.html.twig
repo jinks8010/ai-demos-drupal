@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a GraphQL Compose fragments.
+ *
+ * Available variables:
+ * - title: The title of the fragment.
+ * - fragments: Fragments to display.
+ *
+ * @see graphql_compose_theme()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% for fragment in fragments %}
+<details class="fragment">
+  <summary>{{ fragment.type.name }} <span>{{ fragment.name }}</span></summary>
+  <code language="graphql"><pre>{{ fragment.content }}</pre></code>
+</details>
+{% endfor %}

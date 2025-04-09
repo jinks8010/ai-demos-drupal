@@ -1,0 +1,21 @@
+uuid: 198dd6d7-ccb0-4586-b8d3-08ca3a3c4252
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.faq
+_core:
+  default_config_hash: T54YLq36ox_KeuxcYBIXfKFYWAX6jp8ZwbkJF0V5pBM
+id: paragraph.faq.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: faq
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

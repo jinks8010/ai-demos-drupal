@@ -1,0 +1,28 @@
+uuid: ff455048-afb5-40f1-b844-6bb01caec3cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_picture
+  module:
+    - user
+_core:
+  default_config_hash: qdm2ag5WTQLBia-4L32HQ20AapEn4TQTuOTjWfA6pwM
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_picture:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  member_for:
+    weight: 5
+    region: content
+hidden: {  }

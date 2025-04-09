@@ -1,0 +1,30 @@
+uuid: 4e946317-23d2-4d53-887c-0c862745bf94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - node.type.ai_demo
+  module:
+    - text
+id: node.ai_demo.field_description
+field_name: field_description
+entity_type: node
+bundle: ai_demo
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - plain_text
+field_type: text_long

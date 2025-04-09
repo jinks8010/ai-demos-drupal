@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Custom Field module.
+ */
+
+/**
+ * Map existing settings for new 'preview_types' setting.
+ */
+function decoupled_preview_iframe_update_10001() {
+  $settings = \Drupal::config('decoupled_preview_iframe.settings');
+  if (!empty($settings)) {
+    $preview_types = [];
+    $node_types = $settings->get('node_types');
+    foreach ($node_types as $node_type => $enabled) {
+      $is_enabled = boolval($enabled);
+      if ($is_enabled) {
+        $preview_types['node'][$node_type] = $node_type;
+      }
+    }
+    \Drupal::service('config.factory')->getEditable('decoupled_preview_iframe.settings')
+      ->set('preview_types', $preview_types)
+      ->set('route_sync', $settings->get('route_sync.type') ?? 'DECOUPLED_PREVIEW_IFRAME_ROUTE_SYNC')
+      ->set('draft_provider', $settings->get('draft.provider') ?? 'none')
+      ->clear('node_types')
+      ->clear('draft')
+      ->save();
+  }
+}

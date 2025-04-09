@@ -1,0 +1,12 @@
+name: 'Navigation Extra Tools'
+type: module
+description: 'Adds menu links like flush cache, run cron, and run updates to the Drupal core Navigation menu.'
+package: Administration
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:navigation
+
+# Information added by Drupal.org packaging script on 2025-03-18
+version: '1.1.0'
+project: 'navigation_extra_tools'
+datestamp: 1742261082

@@ -1,0 +1,26 @@
+
+<ul class='visual-editor-breadcrumbs'>
+  {% for menuItem in menu %}
+    <li>
+      {% if menuItem.url is defined %}
+        <a
+          href="{{ menuItem.url }}"
+          class="use-ajax"
+          data-dialog-options="{&quot;width&quot;:&quot;440&quot;}"
+          data-dialog-renderer="off_canvas"
+          data-dialog-type="dialog">
+            {{ menuItem.label }}
+        </a>
+      {% else %}
+        <a id="dialog-toggle">{{ '<<' }}</a> {{ menuItem.label }}
+      {% endif %}
+      {% if not loop.last %}
+        >
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+<hr/>
+
+{{ form }}

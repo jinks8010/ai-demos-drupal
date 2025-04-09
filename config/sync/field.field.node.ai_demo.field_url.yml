@@ -1,0 +1,25 @@
+uuid: 4fdb6fa2-7ce1-48a2-91fa-ede569881c47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_url
+    - node.type.ai_demo
+  module:
+    - video_embed_field
+id: node.ai_demo.field_url
+field_name: field_url
+entity_type: node
+bundle: ai_demo
+label: URL
+description: 'Only You-tube URL supported'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    youtube: youtube
+    vimeo: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

@@ -1,0 +1,12 @@
+uuid: 314e4e58-1407-43a5-baa3-cd90917b0e95
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: oPWKhXvh-PxIpjT-wtqWQO3AA6r5vqyQT2hR7NgAsrE
+id: logo_group
+label: 'Logo Group'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

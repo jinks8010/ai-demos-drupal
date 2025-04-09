@@ -1,0 +1,234 @@
+<?php
+
+/**
+ * @file
+ * Node Public Preview.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\GeneratedUrl;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\graphql\GraphQL\Execution\FieldContext;
+use Drupal\node\NodeInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * Implements hook_help().
+ */
+function graphql_compose_preview_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.graphql_compose_preview':
+      $path = \Drupal::service('extension.list.module')->getPath('graphql_compose_preview');
+      $output = file_get_contents($path . '/README.md');
+      return '<pre>' . Xss::filterAdmin($output) . '</pre>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function graphql_compose_preview_theme() {
+  return [
+    'token_preview_link' => [
+      'variables' => [
+        'title' => NULL,
+        'attributes' => [],
+        'node' => NULL,
+        'preview_token' => NULL,
+        'preview_token_url' => NULL,
+        'preview_token_access' => FALSE,
+      ],
+    ],
+    'token_preview_iframe' => [
+      'variables' => [
+        'attributes' => [],
+        'node' => NULL,
+        'preview_token' => NULL,
+        'preview_token_url' => NULL,
+        'preview_token_access' => FALSE,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Hide the preview switch bar for token access.
+ */
+function graphql_compose_preview_form_node_preview_form_select_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $tokenHelper = \Drupal::service('graphql_compose_preview.token_helper');
+  $entity = \Drupal::routeMatch()->getParameter('node_preview');
+
+  if ($tokenHelper->access($entity)) {
+    $form['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ *
+ * Add the computed fields to the node entity.
+ */
+function graphql_compose_preview_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'node') {
+    $fields = [];
+
+    // The value of the token on the private store.
+    $fields['preview_token'] = BaseFieldDefinition::create('preview_token')
+      ->setName('preview_token')
+      ->setLabel(t('Preview with Token'))
+      ->setComputed(TRUE)
+      ->setDisplayOptions('view', [
+        'type' => 'preview_token',
+        'label' => 'hidden',
+        'weight' => -50,
+        'region' => 'hidden',
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    // True if this entity is being accessed via a token.
+    $fields['preview_token_access'] = BaseFieldDefinition::create('boolean')
+      ->setName('preview_token_access')
+      ->setLabel(t('Preview Token Access'))
+      ->setComputed(TRUE)
+      ->setDefaultValue(FALSE);
+
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_graphql_compose_routes_incoming_alter().
+ *
+ * Add the token query to the request.
+ */
+function graphql_compose_preview_graphql_compose_routes_incoming_alter(&$path, FieldContext $context): void {
+  if (!$path) {
+    return;
+  }
+
+  // Copy any token query out of the path and into an attribute.
+  if ($token = Request::create($path)->query->get('token')) {
+    \Drupal::request()->attributes->set('_graphql_compose_preview_token', $token);
+  }
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Allow subsequent node access checks (not in preview) to view the entity.
+ */
+function graphql_compose_preview_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  static $preview_cache;
+
+  $access = AccessResult::neutral();
+  $tokenHelper = \Drupal::service('graphql_compose_preview.token_helper');
+
+  if ($op === 'view') {
+    if ($node->in_preview && $tokenHelper->access($node)) {
+      // We're accessing the preview via token. Check user permissions.
+      $preview_cache[$node->uuid()] = AccessResult::allowedIfHasPermission(
+        $account,
+        'view graphql_compose_preview entity'
+      );
+    }
+
+    // Check if we've already checked this entity.
+    $access = $preview_cache[$node->uuid()] ?? $access;
+  }
+
+  return $access;
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function graphql_compose_preview_token_info() {
+  $info = [];
+
+  $info['types'] = [
+    'token-preview' => [
+      'name' => t('Token preview'),
+      'description' => t('Tokenized preview utilities.'),
+      'needs-data' => ['node'],
+    ],
+  ];
+
+  $info['tokens']['token-preview'] = [
+    'uuid' => [
+      'name' => t('Preview UUID'),
+      'description' => t('The unique ID of the node.'),
+    ],
+    'token' => [
+      'name' => t('Preview Token'),
+      'description' => t('The unique for a node preview.'),
+    ],
+    'url' => [
+      'name' => t('Preview URL with Token'),
+      'description' => t('The unique URL for a node preview.'),
+    ],
+  ];
+
+  $info['tokens']['node']['preview'] = [
+    'name' => t('Preview'),
+    'description' => t('Preview tokens'),
+    'type' => 'token-preview',
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function graphql_compose_preview_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  if ($type == 'node' && !empty($data['node'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $data['node'];
+
+    if ($preview_tokens = \Drupal::token()->findWithPrefix($tokens, 'preview')) {
+      $replacements += \Drupal::token()->generate('token-preview', $preview_tokens, ['node' => $node], $options, $bubbleable_metadata);
+    }
+  }
+
+  if ($type === 'token-preview' && !empty($data['node'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $data['node'];
+
+    /** @var \Drupal\graphql_compose_preview\TokenHelper $tokenHelper */
+    $tokenHelper = \Drupal::service('graphql_compose_preview.token_helper');
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'uuid':
+          $replacements[$original] = $node->uuid();
+          break;
+
+        case 'token':
+          $replacements[$original] = $tokenHelper->token($node);
+          break;
+
+        case 'url':
+          $url = $tokenHelper->url($node);
+          if ($url instanceof GeneratedUrl) {
+            $bubbleable_metadata->addCacheableDependency($url);
+          }
+          $replacements[$original] = $url?->getGeneratedUrl();
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}

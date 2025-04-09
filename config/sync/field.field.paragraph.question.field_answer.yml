@@ -1,0 +1,32 @@
+uuid: dffea2e5-4f1a-4868-a621-7768d29a5071
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.plain_text
+    - filter.format.restricted_html
+    - paragraphs.paragraphs_type.question
+  module:
+    - text
+_core:
+  default_config_hash: hDk-cOHkOGiMmTomUF8C_3tr_9DqZyEr9xBdBeW1YHg
+id: paragraph.question.field_answer
+field_name: field_answer
+entity_type: paragraph
+bundle: question
+label: Answer
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+    - plain_text
+field_type: text_long

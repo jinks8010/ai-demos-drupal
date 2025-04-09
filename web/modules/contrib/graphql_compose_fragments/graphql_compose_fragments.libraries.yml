@@ -1,0 +1,4 @@
+fragments:
+  css:
+    theme:
+      css/fragments.css: {}

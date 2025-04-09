@@ -1,0 +1,12 @@
+uuid: c3f8d9bb-11da-467d-9a7d-72b1d2786799
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ODDUJdD0n4nm13yRrNYZl38slPAdP84MEB--czyUKd4
+id: testimonial
+label: Testimonial
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

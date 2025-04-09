@@ -1,0 +1,67 @@
+uuid: fc76f7f1-ff4c-4f73-b8f1-ca52cfa26df7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.view_reference.field_description
+    - field.field.paragraph.view_reference.field_heading
+    - field.field.paragraph.view_reference.field_link
+    - field.field.paragraph.view_reference.field_reference
+    - field.field.paragraph.view_reference.field_subheading
+    - paragraphs.paragraphs_type.view_reference
+  module:
+    - link
+    - viewfield
+_core:
+  default_config_hash: ExzBKuy3EeN3ZWBkd6EuJPWRCwhiO5Uk7pHcCvlsrGk
+id: paragraph.view_reference.default
+targetEntityType: paragraph
+bundle: view_reference
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_reference:
+    type: viewfield_default
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: false
+      empty_view_title: hidden
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_subheading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

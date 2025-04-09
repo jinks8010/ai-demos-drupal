@@ -1,0 +1,21 @@
+uuid: 35742357-560c-45a2-8886-ea5eb33b7f13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.page
+_core:
+  default_config_hash: 8dqExO501LIp-8kPxbFqWxe3GdABGL7U6NAvLzvcA6U
+id: node.page.field_summary
+field_name: field_summary
+entity_type: node
+bundle: page
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

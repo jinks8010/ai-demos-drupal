@@ -1,0 +1,13 @@
+name: 'Visual Editor: Paragraphs'
+description: Visual Editor Paragraphs.
+type: module
+core_version_requirement: ^9 || ^10 || 11
+package: Visual Editor
+dependencies:
+  - visual_editor:visual_editor
+  - paragraphs:paragraphs
+
+# Information added by Drupal.org packaging script on 2024-07-30
+version: '1.0.11'
+project: 'visual_editor'
+datestamp: 1722362312

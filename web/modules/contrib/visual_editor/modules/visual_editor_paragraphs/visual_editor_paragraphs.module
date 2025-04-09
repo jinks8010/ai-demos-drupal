@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks for the Visual Editor Paragraphs module.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for field_multiple_value_form().
+ */
+function visual_editor_paragraphs_preprocess_field_multiple_value_form(&$variables) {
+  $request = Drupal::request();
+  if (!$request->isXmlHttpRequest()) {
+    return;
+  }
+
+  $valid_routes = [
+    'visual_editor.node_edit',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (!in_array($route_name, $valid_routes)) {
+    return;
+  }
+
+  if (!empty($variables['table']['#header']) && isset($variables['table']['#rows'][0])) {
+    if (isset($variables['element']['#paragraphs_widget'])) {
+      foreach ($variables['table']['#rows'] as $key => $row) {
+        if (isset($row['data'][1]['data']['#paragraph_type'])) {
+          $variables['table']['#rows'][$key]['data-visual-editor-uuid'] = $row['data'][1]['data']['#uuid'];
+          $variables['table']['#rows'][$key]['data-visual-editor-storage'] = 'paragraph';
+        }
+      }
+    }
+  }
+}

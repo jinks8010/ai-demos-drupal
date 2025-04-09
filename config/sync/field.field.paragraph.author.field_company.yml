@@ -1,0 +1,21 @@
+uuid: 8d6be78c-eead-4c09-ba50-4162b64d1d94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_company
+    - paragraphs.paragraphs_type.author
+_core:
+  default_config_hash: DE2NpwooNx56peyr997kVbg4aYD03mspxnX0CJ3npJ8
+id: paragraph.author.field_company
+field_name: field_company
+entity_type: paragraph
+bundle: author
+label: Company
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

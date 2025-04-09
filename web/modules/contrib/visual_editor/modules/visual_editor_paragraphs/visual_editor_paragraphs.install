@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Visual Editor Paragraphs.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function visual_editor_paragraphs_install() {
+  module_set_weight('visual_editor_paragraphs', 10);
+}

@@ -1,0 +1,9 @@
+parameters:
+  level: 1
+
+  ignoreErrors:
+    - "#^Unsafe usage of new static#"
+    - "#Drupal calls should be avoided in classes, use dependency injection instead#"
+
+includes:
+  - phar://phpstan.phar/conf/bleedingEdge.neon

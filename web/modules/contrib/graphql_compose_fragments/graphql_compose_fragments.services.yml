@@ -1,0 +1,11 @@
+services:
+  # Auto-wiring aliases.
+  Drupal\graphql_compose_fragments\FragmentManager:
+    alias: 'graphql_compose_fragments.manager'
+
+  # Fragment manager service.
+  graphql_compose_fragments.manager:
+    class: Drupal\graphql_compose_fragments\FragmentManager
+    arguments:
+      - "@graphql_compose.schema_type_manager"
+      - "@graphql_compose.entity_type_manager"

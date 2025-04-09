@@ -1,0 +1,17 @@
+{
+  "name": "drupal/graphql_compose_fragments",
+  "type": "drupal-module",
+  "description": "Extended fragment capabilities for GraphQL Compose.",
+  "keywords": [],
+  "homepage": "http://drupal.org/project/graphql_compose_fragments",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/graphql_compose_fragments",
+    "source": "http://cgit.drupalcode.org/graphql_compose_fragments"
+  },
+  "require": {
+    "php": "^8.1",
+    "drupal/graphql_compose": "^2.2"
+  }
+}

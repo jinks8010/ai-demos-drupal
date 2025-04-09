@@ -1,0 +1,83 @@
+uuid: 522febd7-5d80-4317-8a7e-a1d763b1b790
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_components
+    - node.type.page
+    - paragraphs.paragraphs_type.card_group
+    - paragraphs.paragraphs_type.cta
+    - paragraphs.paragraphs_type.faq
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.logo_group
+    - paragraphs.paragraphs_type.testimonial
+    - paragraphs.paragraphs_type.view_reference
+    - paragraphs.paragraphs_type.webform
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 7bSaCflLUh3zcqUAjh4gjYqxPw4PRYGDDTo6GgtKnWM
+id: node.page.field_components
+field_name: field_components
+entity_type: node
+bundle: page
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      hero: hero
+      cta: cta
+      card_group: card_group
+      logo_group: logo_group
+      faq: faq
+      testimonial: testimonial
+      view_reference: view_reference
+      webform: webform
+    negate: 0
+    target_bundles_drag_drop:
+      author:
+        weight: 14
+        enabled: false
+      card_group:
+        weight: -25
+        enabled: true
+      cta:
+        weight: -26
+        enabled: true
+      faq:
+        weight: -22
+        enabled: true
+      hero:
+        weight: -27
+        enabled: true
+      logo:
+        weight: -18
+        enabled: false
+      logo_group:
+        weight: -24
+        enabled: true
+      question:
+        weight: -15
+        enabled: false
+      simple_card:
+        weight: -17
+        enabled: false
+      static_component:
+        weight: -19
+        enabled: false
+      testimonial:
+        weight: -21
+        enabled: true
+      view_reference:
+        weight: -20
+        enabled: true
+      webform:
+        weight: 26
+        enabled: true
+field_type: entity_reference_revisions

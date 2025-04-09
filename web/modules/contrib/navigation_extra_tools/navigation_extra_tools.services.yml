@@ -1,0 +1,4 @@
+services:
+  Drupal\navigation_extra_tools\Hook\NavigationExtraToolsHooks:
+    class: Drupal\navigation_extra_tools\Hook\NavigationExtraToolsHooks
+    autowire: true

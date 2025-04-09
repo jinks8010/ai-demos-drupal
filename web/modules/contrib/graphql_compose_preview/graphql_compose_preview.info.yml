@@ -1,0 +1,17 @@
+name: "GraphQL Compose: Preview"
+description: "Extend preview capabilities for use with GraphQL."
+type: module
+package: GraphQL Compose (Contrib)
+core_version_requirement: ^10.1 || ^11
+php: 8.1
+dependencies:
+  - drupal:node
+  - token:token
+  - graphql_compose:graphql_compose
+  - graphql_compose:graphql_compose_routes
+hidden: false
+
+# Information added by Drupal.org packaging script on 2024-05-13
+version: '1.0.0'
+project: 'graphql_compose_preview'
+datestamp: 1715644170

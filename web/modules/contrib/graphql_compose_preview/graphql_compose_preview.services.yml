@@ -1,0 +1,4 @@
+services:
+  graphql_compose_preview.token_helper:
+    class: Drupal\graphql_compose_preview\TokenHelper
+    arguments: ['@request_stack', '@url_generator']

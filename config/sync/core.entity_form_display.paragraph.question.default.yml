@@ -1,0 +1,36 @@
+uuid: 995b9e14-8dac-484e-be99-766d454e856e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.question.field_answer
+    - field.field.paragraph.question.field_question
+    - paragraphs.paragraphs_type.question
+  module:
+    - text
+_core:
+  default_config_hash: B6vWi6CT2DjAMeZvL41SbRY3fggbwiQhn51YrgRE2Yw
+id: paragraph.question.default
+targetEntityType: paragraph
+bundle: question
+mode: default
+content:
+  field_answer:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_question:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

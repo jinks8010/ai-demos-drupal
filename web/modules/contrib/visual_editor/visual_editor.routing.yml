@@ -1,0 +1,15 @@
+visual_editor.settings:
+  path: '/admin/config/visual_editor/settings'
+  defaults:
+    _form: '\Drupal\visual_editor\Form\SettingsForm'
+    _title: 'Visual Editor Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+visual_editor.node_edit:
+  path: '/visual_editor/form/node/{node_uuid}/edit'
+  defaults:
+    _controller: '\Drupal\visual_editor\Controller\EntityForm:nodeEdit'
+    _title: 'Edit Node'
+  requirements:
+    _custom_access: '\Drupal\visual_editor\Controller\EntityForm::access'

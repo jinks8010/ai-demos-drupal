@@ -1,0 +1,12 @@
+uuid: f7978e7f-e2e2-4074-9008-078a02f16eac
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ye2axgMmktTmoftIf8VM6nnXDordib40yOHajzpcVOM
+id: simple_card
+label: 'Simple Card'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

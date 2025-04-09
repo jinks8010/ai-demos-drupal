@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks for the remix module.
+ */
+
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\CloseDialogCommand;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\visual_editor\Form\NodeEditForm;
+
+/**
+ * Implements hook_theme().
+ */
+function visual_editor_theme() {
+
+  return [
+    'visual_editor__node_edit_form' => [
+      'render element' => 'form',
+      'base hook' => 'node_edit_form',
+    ],
+    'visual_editor__dialog' => [
+      'variables' => [
+        'menu' => NULL,
+        'form' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function visual_editor_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name == 'visual_editor.node_edit' && isset($form['moderation_state'])) {
+    $form['moderation_state']['#group'] = 'meta';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function visual_editor_theme_suggestions_node_edit_form_alter(array &$suggestions, array $variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name == 'visual_editor.node_edit') {
+    $suggestions[] = 'visual_editor__' . $variables['theme_hook_original'];
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function visual_editor_library_info_alter(&$libraries, $extension) {
+  $config = \Drupal::config('visual_editor.settings');
+  $disable_styles = $config->get('disable_styles');
+  if ($disable_styles && isset($libraries['drupal.dialog.off_canvas'])) {
+    unset($libraries['drupal.dialog.off_canvas']['css']['base']['misc/dialog/off-canvas/css/reset.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['base']['misc/dialog/off-canvas/css/base.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['base']['misc/dialog/off-canvas/css/utility.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/button.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/drupal.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/form.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/table.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/details.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/messages.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/tabledrag.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/throbber.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/dropbutton.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/titlebar.css']);
+    unset($libraries['drupal.dialog.off_canvas']['css']['component']['misc/dialog/off-canvas/css/wrapper.css']);
+  }
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function visual_editor_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  $configDpi = \Drupal::config('decoupled_preview_iframe.settings');
+  $preview_types = $configDpi->get('preview_types');
+  $enabled_bundles = $preview_types[$entity->getEntityTypeId()] ?? [];
+  $isPreviewEnabled = in_array($entity->bundle(), $enabled_bundles);
+
+  if (!$isPreviewEnabled) {
+    return;
+  }
+
+  // Return early if anything other than default view mode.
+  $modes = ['default', 'full'];
+  if (!in_array($display->getMode(), $modes)) {
+    return;
+  }
+
+  $routeName = \Drupal::routeMatch()->getRouteName();
+
+  // Don't load editor on these routes.
+  if (in_array($routeName, ['entity.node.revision', 'entity.node.latest_version'])) {
+    return;
+  }
+
+  $config = \Drupal::config('visual_editor.settings');
+  $open_load = $config->get('open_load');
+  $node_preview = \Drupal::routeMatch()->getParameter('node_preview');
+
+  $build['iframe']['#attached']['library'][] = 'visual_editor/node_view';
+  $build['iframe']['#attached']['drupalSettings']['visual_editor'] = [
+    'openLoad' => $open_load,
+    'isPreview' => $node_preview != NULL,
+    'node' => $entity->uuid(),
+  ];
+}
+
+/**
+ * Ajax callback to discard dialog.
+ */
+function visual_editor_discard_dialog(&$form, FormStateInterface $form_state) {
+  $response = new AjaxResponse();
+  $response->addCommand(new CloseDialogCommand('#drupal-off-canvas'));
+
+  return $response;
+}
+
+/**
+ * Ajax callback to close dialog.
+ */
+function visual_editor_close_dialog(&$form, FormStateInterface $form_state) {
+  if (!$form_state->getErrors()) {
+    $response = new AjaxResponse();
+    $response->addCommand(new CloseDialogCommand('#drupal-off-canvas'));
+
+    return $response;
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function visual_editor_entity_type_build(array &$entity_types) {
+  $entity_types['node']->setFormClass('visual_editor', NodeEditForm::class);
+}

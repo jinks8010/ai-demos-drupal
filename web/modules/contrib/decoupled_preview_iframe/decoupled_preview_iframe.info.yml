@@ -1,0 +1,11 @@
+name: Decoupled Preview Iframe
+description: Preview Drupal content from your decoupled front-end site, extending the node-view page embedding an Iframe with the content of your FE application.
+type: module
+core_version_requirement: ^10 || ^11
+package: Decoupled
+configure: decoupled_preview_iframe.settings
+
+# Information added by Drupal.org packaging script on 2024-09-07
+version: '1.0.7'
+project: 'decoupled_preview_iframe'
+datestamp: 1725734305

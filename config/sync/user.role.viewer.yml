@@ -1,0 +1,14 @@
+uuid: 01125652-990f-4316-93bc-8422b1848e83
+langcode: en
+status: true
+dependencies:
+  module:
+    - graphql
+_core:
+  default_config_hash: L3_1uT2XlrGc48dHUBKjVrpDoTRmJqHyXOC4LoHiFbs
+id: viewer
+label: Viewer
+weight: -7
+is_admin: null
+permissions:
+  - 'execute graphql_compose_server arbitrary graphql requests'

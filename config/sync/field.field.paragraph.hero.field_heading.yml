@@ -1,0 +1,21 @@
+uuid: 7f205500-ae80-47ef-9ccb-281d1eb1aa51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.hero
+_core:
+  default_config_hash: j2pLnzK-CRt0SPCysSb617pz8fh6nPQpUy8wWJtIfQs
+id: paragraph.hero.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: hero
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

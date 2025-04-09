@@ -1,0 +1,27 @@
+uuid: 44bf51d9-597e-4c8f-9404-197d0e1fef6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ai_demo.field_description
+    - field.field.node.ai_demo.field_technologies
+    - field.field.node.ai_demo.field_url
+    - node.type.ai_demo
+  module:
+    - user
+id: node.ai_demo.teaser
+targetEntityType: node
+bundle: ai_demo
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_description: true
+  field_technologies: true
+  field_url: true
+  preview_token: true

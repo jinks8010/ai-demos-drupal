@@ -1,0 +1,21 @@
+uuid: 3e85179b-e92b-491d-a573-e71a2449a1af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote
+    - paragraphs.paragraphs_type.testimonial
+_core:
+  default_config_hash: _IvNQNtBfgfcHRVMoslLkKj2l9hyaDaZISmisDtFspM
+id: paragraph.testimonial.field_quote
+field_name: field_quote
+entity_type: paragraph
+bundle: testimonial
+label: Quote
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

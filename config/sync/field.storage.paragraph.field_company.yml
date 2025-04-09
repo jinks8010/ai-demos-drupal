@@ -1,0 +1,23 @@
+uuid: 24fda579-c779-4411-b1fe-5ae7b6e00356
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: a5BbE_fBY4GknB-NUoGDHC5GIs6ykmj6L47PY42gZEU
+id: paragraph.field_company
+field_name: field_company
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

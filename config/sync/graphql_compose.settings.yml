@@ -1,0 +1,298 @@
+entity_config:
+  image_style:
+    large:
+      enabled: false
+    media_library:
+      enabled: false
+    medium:
+      enabled: false
+    thumbnail:
+      enabled: false
+    wide:
+      enabled: false
+  media:
+    image:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
+  menu:
+    account:
+      enabled: false
+    admin:
+      enabled: false
+    footer:
+      enabled: true
+      menu_route_enabled: true
+    main:
+      enabled: true
+      menu_route_enabled: true
+    tools:
+      enabled: false
+  node:
+    article:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
+    page:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
+  paragraph:
+    author:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    card_group:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    cta:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    faq:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    hero:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    logo:
+      enabled: true
+      query_load_enabled: true
+    logo_group:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    question:
+      enabled: true
+    simple_card:
+      enabled: true
+    testimonial:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    view_reference:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+    webform:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+  taxonomy_term:
+    tags:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
+  user:
+    user:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+  webform:
+    contact_form:
+      enabled: true
+      routes_enabled: true
+field_config:
+  media:
+    image:
+      field_media_image:
+        enabled: true
+  node:
+    article:
+      body:
+        enabled: true
+      field_image:
+        enabled: true
+      field_summary:
+        enabled: true
+      field_tags:
+        enabled: true
+    page:
+      field_components:
+        enabled: true
+      field_image:
+        enabled: true
+      field_show_title:
+        enabled: true
+      field_summary:
+        enabled: true
+  paragraph:
+    author:
+      field_company:
+        enabled: true
+      field_image:
+        enabled: true
+      field_name:
+        enabled: true
+      field_position:
+        enabled: true
+    card_group:
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_items:
+        enabled: true
+      field_subheading:
+        enabled: true
+    cta:
+      field_actions:
+        enabled: true
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_subheading:
+        enabled: true
+    faq:
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_items:
+        enabled: true
+    hero:
+      field_actions:
+        enabled: true
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_image:
+        enabled: true
+    logo:
+      field_image:
+        enabled: true
+      field_link:
+        enabled: true
+    logo_group:
+      field_heading:
+        enabled: true
+      field_items:
+        enabled: true
+    question:
+      field_answer:
+        enabled: true
+      field_question:
+        enabled: true
+    simple_card:
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_image:
+        enabled: true
+    testimonial:
+      field_author:
+        enabled: true
+      field_quote:
+        enabled: true
+    view_reference:
+      field_description:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_link:
+        enabled: true
+      field_reference:
+        enabled: true
+        viewfield_query: true
+      field_subheading:
+        enabled: true
+    webform:
+      field_description:
+        enabled: true
+      field_form:
+        enabled: true
+      field_heading:
+        enabled: true
+      field_subheading:
+        enabled: true
+  user:
+    user:
+      field_picture:
+        enabled: true
+settings:
+  expose_entity_ids: false
+  schema_description: Decoupled
+  schema_version: '1'
+  simple_unions: true
+  site_name: false
+  site_slogan: false
+  site_front: false
+  custom: {  }
+  fragments_enabled: true
+node:
+  article:
+    enabled: true
+    query_load_enabled: true
+    edges_enabled: true
+    routes_enabled: true
+  page:
+    enabled: true
+    query_load_enabled: true
+    edges_enabled: true
+    routes_enabled: true
+media:
+  audio:
+    enabled: false
+    query_load_enabled: false
+    edges_enabled: false
+    routes_enabled: false
+  document:
+    enabled: false
+    query_load_enabled: false
+    edges_enabled: false
+    routes_enabled: false
+  image:
+    enabled: true
+    query_load_enabled: true
+    edges_enabled: true
+    routes_enabled: false
+  remote_video:
+    enabled: false
+    query_load_enabled: false
+    edges_enabled: false
+    routes_enabled: false
+  video:
+    enabled: false
+    query_load_enabled: false
+    edges_enabled: false
+    routes_enabled: false
+paragraph: {  }
+taxonomy_term: {  }
+image_style:
+  large:
+    enabled: true
+  media_library:
+    enabled: true
+  medium:
+    enabled: true
+  thumbnail:
+    enabled: true
+  wide:
+    enabled: true
+menu:
+  admin:
+    enabled: false
+  footer:
+    enabled: false
+  main:
+    enabled: false
+  tools:
+    enabled: false
+  account:
+    enabled: false
+user:
+  user:
+    enabled: true
+    query_load_enabled: true
+    edges_enabled: true
+    routes_enabled: false
