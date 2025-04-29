@@ -5,6 +5,7 @@
  * Primary module hooks for field_url_copy module.
  */
 use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_entity_presave().
@@ -21,5 +22,15 @@ function field_url_copy_entity_presave(Drupal\Core\Entity\EntityInterface $entit
       // Set it into the hidden field_yt_url field.
       $entity->set('field_youtube_url', $video_url);
     }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function field_url_copy_form_node_ai_demo_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Hide the field_youtube_url from the form.
+  if (isset($form['field_youtube_url'])) {
+    $form['field_youtube_url']['#access'] = FALSE;
   }
 }
