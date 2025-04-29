@@ -4,9 +4,9 @@ status: open
 dependencies: {  }
 _core:
   default_config_hash: bkUsfGZ6xd1GgK7KDFfuF8B7-crxl5sNu-hX3YelNbU
+weight: 0
 open: null
 close: null
-weight: 0
 uid: 1
 template: false
 archive: false
@@ -215,9 +215,9 @@ access:
 handlers:
   email:
     id: email
+    handler_id: email
     label: Email
     notes: ''
-    handler_id: email
     status: true
     conditions: {  }
     weight: 0

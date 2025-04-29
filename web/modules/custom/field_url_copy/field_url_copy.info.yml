@@ -1,0 +1,7 @@
+name: "Field URL Copy"
+type: module
+description: "Copies the field_youtube_video_embed_url to field_youtube_url"
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - video_embed_field

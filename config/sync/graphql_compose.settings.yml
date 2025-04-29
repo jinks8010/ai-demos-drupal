@@ -1,15 +1,15 @@
 entity_config:
   image_style:
     large:
-      enabled: false
+      enabled: true
     media_library:
-      enabled: false
+      enabled: true
     medium:
-      enabled: false
+      enabled: true
     thumbnail:
-      enabled: false
+      enabled: true
     wide:
-      enabled: false
+      enabled: true
   media:
     image:
       enabled: true
@@ -21,6 +21,8 @@ entity_config:
       enabled: false
     admin:
       enabled: false
+    content:
+      enabled: false
     footer:
       enabled: true
       menu_route_enabled: true
@@ -30,6 +32,11 @@ entity_config:
     tools:
       enabled: false
   node:
+    ai_demo:
+      enabled: true
+      query_load_enabled: true
+      edges_enabled: true
+      routes_enabled: true
     article:
       enabled: true
       query_load_enabled: true
@@ -105,6 +112,13 @@ field_config:
       field_media_image:
         enabled: true
   node:
+    ai_demo:
+      field_description:
+        enabled: true
+      field_technologies:
+        enabled: true
+      field_youtube_url:
+        enabled: true
     article:
       body:
         enabled: true
@@ -279,17 +293,7 @@ image_style:
     enabled: true
   wide:
     enabled: true
-menu:
-  admin:
-    enabled: false
-  footer:
-    enabled: false
-  main:
-    enabled: false
-  tools:
-    enabled: false
-  account:
-    enabled: false
+menu: {  }
 user:
   user:
     enabled: true

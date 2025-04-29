@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.ai_demo.field_description
     - field.field.node.ai_demo.field_technologies
-    - field.field.node.ai_demo.field_url
+    - field.field.node.ai_demo.field_youtube_url
+    - field.field.node.ai_demo.field_youtube_video_embed_url
     - node.type.ai_demo
   module:
+    - link
     - text
     - user
     - video_embed_field
@@ -21,7 +23,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 1
     region: content
   field_technologies:
     type: entity_reference_label
@@ -29,9 +31,21 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 103
+    weight: 3
     region: content
-  field_url:
+  field_youtube_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_youtube_video_embed_url:
     type: video_embed_field_video
     label: above
     settings:
@@ -40,12 +54,12 @@ content:
       width: 854
       height: 480
     third_party_settings: {  }
-    weight: 102
+    weight: 2
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden:
   preview_token: true

@@ -6,7 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.ai_demo.field_description
     - field.field.node.ai_demo.field_technologies
-    - field.field.node.ai_demo.field_url
+    - field.field.node.ai_demo.field_youtube_url
+    - field.field.node.ai_demo.field_youtube_video_embed_url
     - node.type.ai_demo
   module:
     - user
@@ -23,5 +24,6 @@ content:
 hidden:
   field_description: true
   field_technologies: true
-  field_url: true
+  field_youtube_url: true
+  field_youtube_video_embed_url: true
   preview_token: true

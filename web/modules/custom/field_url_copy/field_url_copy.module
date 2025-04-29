@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for field_url_copy module.
+ */
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_entity_presave().
+ */
+function field_url_copy_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Only act on node entities of type 'AiDemos'.
+  if ($entity instanceof NodeInterface && $entity->bundle() === 'ai_demo') {
+
+    // Check if field_url (Video Embed field) has a value.
+    if (!$entity->get('field_youtube_video_embed_url')->isEmpty()) {
+      // Get the URL value from the video embed field.
+      $video_url = $entity->get('field_youtube_video_embed_url')->first()->get('value')->getString();
+
+      // Set it into the hidden field_yt_url field.
+      $entity->set('field_youtube_url', $video_url);
+    }
+  }
+}

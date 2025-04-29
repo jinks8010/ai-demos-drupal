@@ -1,16 +1,16 @@
-uuid: b254d1b3-aa8b-4a5b-8f87-8120b06d52e2
+uuid: 98b178a1-e912-4194-9909-b078074bc05b
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-    - video_embed_field
-id: node.field_url
-field_name: field_url
+id: node.field_youtube_url
+field_name: field_youtube_url
 entity_type: node
-type: video_embed_field
+type: link
 settings: {  }
-module: video_embed_field
+module: link
 locked: false
 cardinality: 1
 translatable: true
